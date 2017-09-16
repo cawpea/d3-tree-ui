@@ -1,0 +1,23 @@
+{
+  "name": "tree-ui",
+  "version": "1.0.0",
+  "description": "This is a library to use hierarchical user interface like a File System.",
+  "main": "index.js",
+  "scripts": {
+    "start": "browser-sync start --server .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masaki-ohsumi/tree-ui.git"
+  },
+  "author": "masaki-ohsumi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/masaki-ohsumi/tree-ui/issues"
+  },
+  "homepage": "https://github.com/masaki-ohsumi/tree-ui#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.13"
+  }
+}

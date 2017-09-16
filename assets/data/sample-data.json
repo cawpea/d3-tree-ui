@@ -1,0 +1,190 @@
+{
+  "id": 0,
+  "name": "Object",
+  "children": [
+      {
+        "id": 1,
+        "parent": 0,
+        "name": "window",
+        "children": [
+          {
+            "id": 4,
+            "parent": 1,
+            "name": "document",
+            "minimum_keyword_count": 5,
+            "maximum_keyword_count": 10,
+            "children": [
+              {
+                "id": 7,
+                "parent": 4,
+                "name": "anchor",
+                "children": [
+                  {
+                    "id": 12,
+                    "parent": 7,
+                    "name": "test",
+                    "children": null
+                  },
+                  {
+                    "id": 121,
+                    "parent": 7,
+                    "name": "j2",
+                    "children": [
+                      {
+                        "id": 122,
+                        "parent": 121,
+                        "name": "j2-1",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": 8,
+                "parent": 4,
+                "name": "abcdefghijklmnopqrstuvwxyz",
+                "children": [
+                  {
+                    "id": 13,
+                    "parent": 8,
+                    "name": "k1",
+                    "children": null
+                  },
+                  {
+                    "id": 14,
+                    "parent": 8,
+                    "name": "k2",
+                    "children": null
+                  }
+                ]
+              },
+              {
+                "id": 9,
+                "parent": 4,
+                "name": "123456789012345678901234567890",
+                "minimum_keyword_count": 50,
+                "maximum_keyword_count": 100,
+                "children": [
+                  {
+                    "id": 15,
+                    "parent": 9,
+                    "name": "l1",
+                    "children": null
+                  },
+                  {
+                    "id": 16,
+                    "parent": 9,
+                    "name": "l2",
+                    "children": [
+                      {
+                        "id": 17,
+                        "parent": 16,
+                        "name": "l2-1",
+                        "children": null
+                      },
+                      {
+                        "id": 18,
+                        "parent": 16,
+                        "name": "l2-2",
+                        "children": null
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": 10,
+                "parent": 4,
+                "name": "123456789012345678901234567",
+                "children": null
+              },
+              {
+                "id": 11,
+                "parent": 4,
+                "name": "n",
+                "children": [
+                  {
+                    "id": 19,
+                    "parent": 11,
+                    "name": "n1",
+                    "children": null,
+                    "minimum_keyword_count": 1,
+                    "maximum_keyword_count": 100
+                  },
+                  {
+                    "id": 20,
+                    "parent": 11,
+                    "name": "n2",
+                    "children": null
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 5,
+            "parent": 1,
+            "name": "frame",
+            "children": [
+              {
+                "id": 21,
+                "parent": 5,
+                "name": "r",
+                "children": null
+              },
+              {
+                "id": 22,
+                "parent": 5,
+                "name": "s",
+                "children": null
+              },
+              {
+                "id": 220,
+                "parent": 5,
+                "name": "u",
+                "children": null
+              }
+            ]
+          },
+          {
+            "id": 6,
+            "parent": 1,
+            "name": "location",
+            "children": [
+              {
+                "id": 23,
+                "parent": 6,
+                "name": "o",
+                "children": null
+              },
+              {
+                "id": 24,
+                "parent": 6,
+                "name": "p",
+                "children": null
+              },
+              {
+                "id": 25,
+                "parent": 6,
+                "name": "q",
+                "children": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "parent": 0,
+        "name": "navigator",
+        "children": null
+      },
+      {
+        "id": 3,
+        "parent": 0,
+        "name": "history",
+        "children": null
+      }
+  ]
+}

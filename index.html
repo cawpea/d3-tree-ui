@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tree UI</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <style>
+  /* For Layout */
+  .wrapper {
+    margin: 30px;
+  }
+  nav {
+    margin: 20px 0;
+  }
+  /* For Tree */
+  .tree-wrap {
+    position: relative;
+    font-size: 12px;
+  }
+  .tree-bg rect:nth-child(odd) {
+    fill: #f3f3f6;
+  }
+  .tree-bg rect:nth-child(even) {
+    fill: #f8f8fb;
+  }
+  .is-dragging .node-bg {
+    pointer-events: none;
+  }
+  .node.is-close {
+    display: none;
+  }
+  .node text {
+    fill: #343233;
+    pointer-events: none;
+  }
+  .node text.is-editing {
+    display: none;
+  }
+  .node.node--userinput .node-name {
+    fill: #4077ca;
+  }
+  .node .node--userinput-range {
+    font-size: 11px;
+    fill: #4077ca;
+  }
+  .node.node--leaf .node-bg,
+  .node.node--userinput .node-bg {
+    stroke: #05aa65;
+  }
+  .node.node--leaf .node-name {
+    fill: #05aa65;
+  }
+  .node.node--leaf.is-selected .node-bg,
+  .node--drag .node-bg {
+    fill: #05aa65;
+  }
+  .node.node--leaf.is-selected .node-name {
+    fill: #fff;
+  }
+  .node.node--branch .node-bg {
+    stroke: #666;
+  }
+  .node.node--branch .node-name {
+    fill: #666;
+  }
+  .node.node--branch.is-selected .node-bg {
+    fill: #666;
+  }
+  .node.node--branch.is-selected .node-name,
+  .node--drag .node-name {
+    fill: #fff;
+  }
+  .node .node-toggle {
+    fill: transparent;
+    cursor: pointer;
+  }
+  .node .node-toggle-label {
+    fill: #aaa;
+    stroke-width: 0;
+    font-weight: bold;
+  }
+  .node--internal text {
+    text-shadow: 0 1px 0 #FFF, 0 #FFF, 1px 0 0 #FFF, -1px 0 0 #FFF;
+  }
+  .node-textbox {
+    position: absolute;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  .node-tooltip {
+    position: absolute;
+    background: #FFF;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    box-shadow: 0 0 3px 0px rgba(0,0,0,.2);
+    max-width: 400px;
+    padding: 5px;
+  }
+  .node-tooltip-text {
+    word-wrap: break-word;
+    word-break: break-all;
+    text-align: justify;
+    margin: 0;
+  }
+  .link {
+    fill: none;
+    stroke: #CCC;
+    stroke-width: 2px;
+  }
+  .tree-dragarea {
+  }
+  .tree-dragarea rect {
+    opacity: 0.4;
+    fill: transparent;
+  }
+  .tree-dragarea.is-selected rect {
+    fill: transparent;
+  }
+  .tree-dragarea.is-selected line {
+    stroke: #40ca6f;
+    stroke-width: 3px;
+  }
+  .tree-dragarea.is-disabled rect {
+    display: none;
+  }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="wrapper">
+      <h1>Tree UI</h1/>
+      <nav>
+        <button class="btn btn-default js-tree-addnode-bottom">Add node to left</button>
+        <button class="btn btn-default js-tree-addnode-right">Add node to right</button>
+      </nav>
+      <div class="tree-wrap">
+        <svg id="tree"></svg>
+      </div>
+  </main>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="./tree-ui.js"></script>
+</body>
+</html>
