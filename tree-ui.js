@@ -206,6 +206,20 @@ class DirectoryTree {
 
     this.updateBackground();
   }
+  calculateNodePathD (d) {
+    if (!d || !d.parent) {
+      return
+    }
+    let margin = MARGIN.NODE.LEFT
+    let currentY = d._y
+    let parentY = d.parent._y
+    let diffY = currentY - parentY
+    if (diffY === 0) {
+      return 'M0,0 h10'
+    } else {
+      return `M0,${-(diffY)} q${margin/2},0,${margin/2},5 v${diffY-10} q0,${margin/2},${margin/2},${margin/2}`
+    }
+  }
   /*
   子ノードのレイアウト設定処理。全ての子ノードに対して再帰的に実行する。
 
@@ -783,6 +797,13 @@ class DirectoryTree {
         return d._ellipsisName ? d._ellipsisName : d.data.name;
       });
 
+    // 親ノードと子ノードを繋ぐためのパス
+    let $nodePath = $nodes.append('path')
+      .attr('class', 'node-path')
+      .attr('d', this.calculateNodePathD)
+      .attr('stroke', '#666')
+      .attr('fill', 'none');
+
     //背景用rect要素のプロパティを設定
     //ノードドラッグ時に発生させたくないイベントはこのSelectionにバインドする
     $nodesBg.attr('height', (d) => {
@@ -861,6 +882,12 @@ class DirectoryTree {
           });
           break;
         case NODE_METHOD.TOGGLE_CHILDREN:
+          const node = param.data.node
+          if( node._isToggleOpen === undefined ) {
+            node._isToggleOpen = false;
+          }else {
+            node._isToggleOpen = !node._isToggleOpen;
+          }
           this.updateNodesLayout();
           break;
         case NODE_METHOD.DELETE_NODE:
@@ -933,7 +960,7 @@ class DirectoryTree {
       .attr('transform', (d) => {
         return `translate(${d._x}, ${d._y})`;
       });
-
+    
     let $delNodes = this.$nodeWrap.selectAll('.node')
       .data( this.nodeList, (d) => {
         return d.data.id;
@@ -941,11 +968,15 @@ class DirectoryTree {
       .exit()
       .remove();
 
-
     let $texts = this.$nodes.selectAll('.node-name')
       .text((d) => {
         return d._ellipsisName ? d._ellipsisName : d.data.name;
       });
+
+    this.$nodeWrap.selectAll('.node-path')
+      .transition()
+      .duration(DEFAULT_DURATION)
+      .attr('d', this.calculateNodePathD);
 
     if( $newNode !== undefined && $newNode !== null && $newNode.data().length > 0 ) {
       //内部データを更新した後、追加されたノードは編集状態にする
@@ -1259,24 +1290,11 @@ class DirectoryTree {
     });
   }
   toggleChildren( parentData ) {
-    let parentId = parentData.data.id;
-
-    if( parentData._isToggleOpen === undefined ) {
-      parentData._isToggleOpen = false;
-    }else {
-      parentData._isToggleOpen = !parentData._isToggleOpen;
-    }
-
-    // if( parentData._isToggleOpen ) {
-    //   parentData.children = parentData._children;
-    //   parentData._children = null;
-    // }else {
-    //   parentData._children = parentData.children;
-    //   parentData.children = null;
-    // }
-
     this.updateNode({
-      type: NODE_METHOD.TOGGLE_CHILDREN
+      type: NODE_METHOD.TOGGLE_CHILDREN,
+      data: {
+        node: parentData
+      }
     });
   }
 }
