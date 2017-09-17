@@ -363,8 +363,26 @@ class TreeUI {
       .attr('height', this.svgHeight);
   }
   initLayout() {
+    let $defs = this.$svg.append('defs')
+    this.appendGradient($defs, 'branchGradient')
+    this.appendGradient($defs, 'leafGradient')
+
     this.$nodeWrap = this.$svg.append('g')
       .attr('transform', 'translate(0, ' + MARGIN.CONTAINER.TOP + ')');
+  }
+  appendGradient ($defs, gradientId) {
+    let $branchGradient = $defs.append('linearGradient')
+      .attr('id', gradientId)
+      .attr('x1', 0)
+      .attr('y1', 0)
+      .attr('x2', 0)
+      .attr('y2', 1);
+    let $fromColor = $branchGradient.append('stop')
+      .attr('class', 'from')
+      .attr('offset', '0%');
+    let $toColor = $branchGradient.append('stop')
+      .attr('class', 'to')
+      .attr('offset', '100%')
   }
   showTooltip($nodeName, nodeData) {
     if( !nodeData._isEllpsis ) {
