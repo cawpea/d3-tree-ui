@@ -61,19 +61,24 @@ class TreeUI {
       addToRight,
       nodeWidth,
       nodeHeight,
-      nodeMargin
+      nodeMargin,
+      addable,
+      editable,
+      draggable
     } = params
     this.json = json;
     this.$svgWrap = d3.select(wrapper);
     this.$svg = d3.select(svg);
     this.$addNodeBottom = d3.select(addToBottom);
     this.$addNodeRight = d3.select(addToRight);
-
     this.columnWidth = nodeWidth || 200;
     this.textLineWidth = this.columnWidth - 50;
     this.textMinLength = 10;
     this.nodeHeight = nodeHeight || 30;
     this.rowHeight = this.nodeHeight + (nodeMargin || 0);
+    this.addable = typeof addable === 'boolean' ? addable : true;
+    this.editable = typeof editable === 'boolean' ? editable : true;
+    this.draggable = typeof draggable === 'boolean' ? draggable : true;
     this.init()
   }
   init() {
@@ -867,12 +872,14 @@ class TreeUI {
       _this.focusNode(d);
     })
     .on('dblclick', (d) => {
-      _this.editStartNodeName( d );
+      if (this.editable) {
+        _this.editStartNodeName( d );
+      }
     });
 
-    $nodes.each(function(d) {
-      if( !d._isUserInput ) {
-        //回答者入力欄以外はドラッグ＆ドロップで移動可能にする
+    if (this.draggable) {
+      $nodes.each(function(d) {
+        //ドラッグ＆ドロップで移動可能にする
         d3.select(this)
           .call(
             d3.drag()
@@ -886,22 +893,8 @@ class TreeUI {
               _this.endDragging();
             })
           );
-      }else {
-        //回答者入力ノード用ラベル
-        d3.select(this)
-          .append('text')
-          .attr('class', 'node--userinput-range')
-          .attr('x', _this.columnWidth - 10)
-          .attr('y', '0.35em')
-          .attr('text-anchor', 'end')
-          .text((d) => {
-            let maxLeafCount = d.parent.data.maximum_leaf_count;
-            let minLeafCount = d.parent.data.minimum_leaf_count;
-            return `${minLeafCount}〜${maxLeafCount}`;
-          })
-        };
-    });
-
+      });
+    }
     return $nodes;
   }
   // ノード更新処理
@@ -1231,8 +1224,10 @@ class TreeUI {
     return isEmpty;
   }
   appendTempNode( selectedNode, direction ) {
-
-    if( selectedNode._isEdit ) {
+    if (!this.addable) {
+      return
+    }
+    else if( selectedNode._isEdit ) {
       if( !this.isNodeNameEmpty() ) {
         this.editEndNodeName();
       }
@@ -1365,4 +1360,4 @@ class Util {
   window.TreeUI = TreeUI;
 }())
 
-export default TreeUI;
+module.exports = TreeUI;
