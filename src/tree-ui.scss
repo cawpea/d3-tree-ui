@@ -18,8 +18,8 @@
     fill: transparent;
   }
   &-dragarea.is-selected line {
-    stroke: #40ca6f;
-    stroke-width: 3px;
+    stroke: #0090ff;
+    stroke-width: 2px;
   }
   &-dragarea.is-disabled rect {
     display: none;
@@ -90,10 +90,11 @@
   }
   &--drag {
     .node-bg {
-      fill: #05aa65;
+      fill: none;
+      stroke: #666;
     }
     .node-name {
-      fill: #fff;
+      fill: #666;
     }
   }
   &--internal text {

@@ -495,10 +495,10 @@ class DirectoryTree {
 
       if(isFirst) {
         dragAreaHeight = _this.rowHeight / 2;
-        if( !isTop ) {
-          // ノードより上をドラッグ可能領域とする
-          dragAreaHeight += _this.svgHeight - ( _this.svgHeight - d._y );
-        }
+        // if( !isTop ) {
+        //   // ノードより上をドラッグ可能領域とする
+        //   dragAreaHeight += _this.svgHeight - ( _this.svgHeight - d._y );
+        // }
       }
       else if(isLast) {
         // ノードより下の領域をドラック可能領域とする
@@ -515,8 +515,12 @@ class DirectoryTree {
       let isFirst = d._childIndex === 0;
       let lineY = 0;
 
-      if( isFirst ) {
-        lineY = d._y;
+      if( isFirst && isLast ) {
+        lineY = _this.rowHeight / 2;
+      }
+      else if( isFirst ) {
+        // lineY = d._y;
+        lineY = 0;
       }
       else if( isLast ) {
         lineY = _this.rowHeight / 2;
