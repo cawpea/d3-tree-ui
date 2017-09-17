@@ -6,7 +6,7 @@ module.exports = [
   {
     context: path.join(__dirname, 'src'),
     entry: {
-      bundle: './tree-ui.js'
+      'd3-tree-ui': './d3-tree-ui.js'
     },
     output: {
       path: path.join(__dirname, 'public'),
@@ -20,6 +20,17 @@ module.exports = [
           options: {
             presets: ['es2015']
           }
+        },
+        {
+          test: /\.scss$/,
+          loaders: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {url: false}
+            },
+            'sass-loader'
+          ]
         }
       ]
     },
@@ -31,31 +42,5 @@ module.exports = [
     resolve: {
       extensions: ['.js']
     }
-  },
-  {
-    context: path.join(__dirname, 'src'),
-    entry: {
-      bundle: './tree-ui.scss'
-    },
-    output: {
-      path: path.join(__dirname, 'public/css'),
-      filename: '[name].css'
-    },
-    module: {
-      rules: [
-        {
-          test: /\.scss$/,
-          use: ExtractTextPlugin.extract(
-            {
-              fallback: "style-loader",
-              use: ["css-loader", "sass-loader"]
-            }
-          )
-        }
-      ]
-    },
-    plugins: [
-      new ExtractTextPlugin('bundle.css')
-    ]
   }
 ]

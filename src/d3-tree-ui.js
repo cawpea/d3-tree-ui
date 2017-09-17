@@ -1,3 +1,6 @@
+import * as d3 from 'd3';
+import './d3-tree-ui.scss';
+
 const MARGIN = {
   CONTAINER: {
     TOP: 30,
@@ -1343,3 +1346,5 @@ class Util {
 (function() {
   window.TreeUI = TreeUI;
 }())
+
+export default TreeUI;
