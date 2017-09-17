@@ -48,18 +48,30 @@ const MOVE_DIRECTION = {
   RIGHT: 'moveRight'
 };
 
-class DirectoryTree {
-  constructor(root, wrapper) {
+class TreeUI {
+  constructor(params) {
+    const {
+      json,
+      svg,
+      wrapper,
+      addToBottom,
+      addToRight,
+      nodeWidth,
+      nodeHeight,
+      nodeMargin
+    } = params
+    this.json = json;
     this.$svgWrap = d3.select(wrapper);
-    this.$svg = d3.select(root);
-    this.$addNodeBottom = d3.select('.js-tree-addnode-bottom');
-    this.$addNodeRight = d3.select('.js-tree-addnode-right');
+    this.$svg = d3.select(svg);
+    this.$addNodeBottom = d3.select(addToBottom);
+    this.$addNodeRight = d3.select(addToRight);
 
-    this.columnWidth = 200;
+    this.columnWidth = nodeWidth || 200;
     this.textLineWidth = this.columnWidth - 50;
     this.textMinLength = 10;
-    this.rowHeight = 35;
-    this.nodeHeight = 30;
+    this.nodeHeight = nodeHeight || 30;
+    this.rowHeight = this.nodeHeight + (nodeMargin || 0);
+    this.init()
   }
   init() {
     this.getJsonData((data) => {
@@ -72,7 +84,7 @@ class DirectoryTree {
     });
   }
   getJsonData(callback) {
-    d3.json('./data/sample-data2.json', (error, data) => {
+    d3.json(this.json, (error, data) => {
       if (error) throw error;
       callback(data);
     });
@@ -566,6 +578,9 @@ class DirectoryTree {
   endDragging() {
     let $selectedDragArea = d3.select('.tree-dragarea.is-selected');
     let exitFunc = () => {
+      if (!this.$dragNode) {
+        return;
+      }
       let dragNodeData = this.$dragNode.data()[0];
 
       this.$nodeWrap.selectAll('.tree-dragarea').remove();
@@ -1326,5 +1341,5 @@ class Util {
 }
 
 (function() {
-  new DirectoryTree('#tree', '.tree-wrap').init();
-}());
+  window.TreeUI = TreeUI;
+}())

@@ -41,5 +41,19 @@
   </main>
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="./bundle.js"></script>
+  <script>
+  (function() {
+    new TreeUI({
+      json: './data/sample-data.json',
+      svg: '#tree',
+      wrapper: '.tree-wrap',
+      addToBottom: '.js-tree-addnode-bottom',
+      addToRight: '.js-tree-addnode-right',
+      nodeWidth: 200,
+      nodeHeight: 30,
+      nodeMargin: 5
+    })
+  }());
+  </script>
 </body>
 </html>
