@@ -58,8 +58,8 @@ class DirectoryTree {
     this.columnWidth = 200;
     this.textLineWidth = this.columnWidth - 50;
     this.textMinLength = 10;
-    this.rowHeight = 30;
-    this.nodeHeight = 25;
+    this.rowHeight = 35;
+    this.nodeHeight = 30;
   }
   init() {
     this.getJsonData((data) => {
@@ -72,7 +72,7 @@ class DirectoryTree {
     });
   }
   getJsonData(callback) {
-    d3.json('./assets/data/sample-data.json', (error, data) => {
+    d3.json('./data/sample-data.json', (error, data) => {
       if (error) throw error;
       callback(data);
     });

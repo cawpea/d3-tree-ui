@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tree UI</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/bundle.css">
+  <style>
+  /* For Layout */
+  .wrapper {
+    margin: 30px;
+  }
+  nav {
+    margin: 20px 0;
+  }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="wrapper">
+      <h1>Tree UI</h1/>
+      <nav>
+        <button class="btn btn-default js-tree-addnode-bottom">Add node to left</button>
+        <button class="btn btn-default js-tree-addnode-right">Add node to right</button>
+      </nav>
+      <div class="tree-wrap">
+        <svg id="tree"></svg>
+      </div>
+  </main>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="./bundle.js"></script>
+</body>
+</html>
