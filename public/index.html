@@ -3,28 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <title>D3 Tree UI</title>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <style>
-  .wrapper {
-    margin: 30px;
+  /* For demo page */
+  html, body, h1 {
+    margin: 0;
   }
-  nav {
-    margin: 20px 0;
+  main {
+    background: #f8f8fb;
+    padding-top: 50px;
+  }
+  .demo-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(#333, #000);
+    color: #FFF;
+    box-shadow: 0px 1px 3px 1px rgba(0,0,0,.1);
+    z-index: 10;
+  }
+  .demo-header-inner {
+    padding: 0 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  .demo-header-title {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .demo-nav {
+    padding: 15px 20px;
+  }
+  .demo-footer {
+    padding: 15px 20px;
+    text-align: center;
+    background: linear-gradient(#333, #000);
+    color: #FFF;
+  }
+  a {
+    color: #44b1ff;
   }
   </style>
 </head>
 <body>
   <main>
-    <section class="wrapper">
-      <h1>D3 Tree UI</h1/>
-      <nav>
+    <section>
+      <header class="demo-header">
+        <div class="demo-header-inner">
+          <h1 class="demo-header-title">D3 Tree UI</h1/>
+          <p><a href="https://github.com/masaki-ohsumi/d3-tree-ui" target="_blank">GitHub</a></p>
+        </div>
+      </header>
+      <nav class="demo-nav">
         <button class="btn btn-default js-tree-addnode-bottom">Add node to bottom</button>
         <button class="btn btn-default js-tree-addnode-right">Add node to right</button>
       </nav>
       <div class="tree-wrap">
         <svg id="tree"></svg>
       </div>
+      <footer class="demo-footer">
+        <small>created by <a href="https://github.com/masaki-ohsumi" target="_blank">@masaki-ohsumi</a></small>
+      </footer>
   </main>
   <script src="./d3-tree-ui.js"></script>
   <script>
