@@ -26,6 +26,24 @@
   }
 }
 .node {
+  text {
+    fill: #343233;
+    pointer-events: none;
+  }
+  text.is-editing {
+    display: none;
+  }
+  path {
+    stroke: #999;
+  }
+  .link {
+    fill: none;
+    stroke: #CCC;
+    stroke-width: 2px;
+  }
+  &.is-close {
+    display: none;
+  }
   &-toggle {
     fill: transparent;
     cursor: pointer;
@@ -35,57 +53,49 @@
     stroke-width: 0;
     font-weight: bold;
   }
-  .is-dragging &-bg {
-    pointer-events: none;
+  &-bg {
+    rx: 2px;
+    ry: 2px;
   }
-  &.is-close {
-    display: none;
+  &.is-selected {
+    .node-bg {
+      stroke: #0090ff !important;
+      stroke-width: 2px;
+    }
   }
-  text {
-    fill: #343233;
-    pointer-events: none;
-  }
-  text.is-editing {
-    display: none;
+  &.is-dragging {
+    .node-bg {
+      pointer-events: none;
+    }
   }
   &.node--userinput {
     .node-bg {
       stroke: #05aa65;
     }
     .node-name {
-      fill: #4077ca;
+      fill: #0090ff;
     }
     &-range {
       font-size: 11px;
-      fill: #4077ca;
+      fill: #0090ff;
     }
   }
   &.node--leaf {
     .node-bg {
-      stroke: #05aa65;
+      stroke: #DDD;
+      fill: url("#leafGradient");
     }
     .node-name {
       fill: #05aa65;
-    }
-    &.is-selected .node-bg {
-      fill: #05aa65;
-    }
-    &.is-selected .node-name {
-      fill: #fff;
     }
   }
   &.node--branch {
     .node-bg {
-      stroke: #666;
+      stroke: #DDD;
+      fill: url("#branchGradient");
     }
     .node-name {
       fill: #666;
-    }
-    &.is-selected .node-bg {
-      fill: #666;
-    }
-    &.is-selected .node-name {
-      fill: #fff;
     }
   }
   &--drag {
@@ -120,9 +130,20 @@
     text-align: justify;
     margin: 0;
   }
-  .link {
-    fill: none;
-    stroke: #CCC;
-    stroke-width: 2px;
+}
+#branchGradient {
+  .from {
+    stop-color: #FFF;
+  }
+  .to {
+    stop-color: #EEE;
+  }
+}
+#leafGradient {
+  .from {
+    stop-color: #FFF
+  }
+  .to {
+    stop-color: #EEE;
   }
 }

@@ -21,11 +21,22 @@
     <section class="wrapper">
       <h1>Tree UI</h1/>
       <nav>
-        <button class="btn btn-default js-tree-addnode-bottom">Add node to left</button>
+        <button class="btn btn-default js-tree-addnode-bottom">Add node to bottom</button>
         <button class="btn btn-default js-tree-addnode-right">Add node to right</button>
       </nav>
       <div class="tree-wrap">
-        <svg id="tree"></svg>
+        <svg id="tree">
+          <defs>
+            <linearGradient id="branchGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop class="from" offset="0%" />
+              <stop class="to" offset="100%" />
+            </linearGradient>
+            <linearGradient id="leafGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop class="from" offset="0%" />
+              <stop class="to" offset="100%" />
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
   </main>
   <script src="https://d3js.org/d3.v4.min.js"></script>

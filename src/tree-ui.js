@@ -72,7 +72,7 @@ class DirectoryTree {
     });
   }
   getJsonData(callback) {
-    d3.json('./data/sample-data.json', (error, data) => {
+    d3.json('./data/sample-data2.json', (error, data) => {
       if (error) throw error;
       callback(data);
     });
@@ -805,7 +805,6 @@ class DirectoryTree {
     let $nodePath = $nodes.append('path')
       .attr('class', 'node-path')
       .attr('d', this.calculateNodePathD)
-      .attr('stroke', '#666')
       .attr('fill', 'none');
 
     //背景用rect要素のプロパティを設定
