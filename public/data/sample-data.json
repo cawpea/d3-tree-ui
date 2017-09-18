@@ -1,0 +1,190 @@
+{
+  "id": 0,
+  "name": "Object",
+  "children": [
+      {
+        "id": 1,
+        "parent": 0,
+        "name": "navigator",
+        "children": []
+      },
+      {
+        "id": 2,
+        "parent": 0,
+        "name": "window",
+        "children": [
+          {
+            "id": 10,
+            "parent": 2,
+            "name": "document",
+            "children": [
+              {
+                "id": 14,
+                "parent": 10,
+                "name": "anchor",
+                "children": []
+              },
+              {
+                "id": 15,
+                "parent": 10,
+                "name": "image",
+                "children": []
+              },
+              {
+                "id": 16,
+                "parent": 10,
+                "name": "form",
+                "children": [
+                  {
+                    "id": 22,
+                    "parent": 16,
+                    "name": "button",
+                    "children": []
+                  },
+                  {
+                    "id": 23,
+                    "parent": 16,
+                    "name": "checkbox",
+                    "children": []
+                  },
+                  {
+                    "id": 24,
+                    "parent": 16,
+                    "name": "radio",
+                    "children": []
+                  },
+                  {
+                    "id": 25,
+                    "parent": 16,
+                    "name": "reset",
+                    "children": []
+                  },
+                  {
+                    "id": 26,
+                    "parent": 16,
+                    "name": "submit",
+                    "children": []
+                  },
+                  {
+                    "id": 27,
+                    "parent": 16,
+                    "name": "select",
+                    "children": [
+                      {
+                        "id": 30,
+                        "parent": 27,
+                        "name": "option",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "id": 28,
+                    "parent": 16,
+                    "name": "text",
+                    "children": []
+                  },
+                  {
+                    "id": 29,
+                    "parent": 16,
+                    "name": "textarea",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": 17,
+                "parent": 10,
+                "name": "link",
+                "children": []
+              },
+              {
+                "id": 18,
+                "parent": 10,
+                "name": "layer",
+                "children": []
+              },
+              {
+                "id": 19,
+                "parent": 10,
+                "name": "area",
+                "children": []
+              },
+              {
+                "id": 20,
+                "parent": 10,
+                "name": "applet",
+                "children": []
+              },
+              {
+                "id": 21,
+                "parent": 10,
+                "name": "plugin",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": 11,
+            "parent": 2,
+            "name": "frame",
+            "children": []
+          },
+          {
+            "id": 12,
+            "parent": 2,
+            "name": "location",
+            "children": []
+          },
+          {
+            "id": 13,
+            "parent": 2,
+            "name": "history",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "parent": 0,
+        "name": "Array",
+        "children": []
+      },
+      {
+        "id": 4,
+        "parent": 0,
+        "name": "Data",
+        "children": []
+      },
+      {
+        "id": 5,
+        "parent": 0,
+        "name": "Math",
+        "children": []
+      },
+      {
+        "id": 6,
+        "parent": 0,
+        "name": "String",
+        "children": []
+      },
+      {
+        "id": 7,
+        "parent": 0,
+        "name": "Function", 
+        "children": []
+      },
+      {
+        "id": 8,
+        "parent": 0,
+        "name": "Boolean", 
+        "children": []
+      },
+      {
+        "id": 9,
+        "parent": 0,
+        "name": "Number", 
+        "children": []
+      }
+  ]
+}

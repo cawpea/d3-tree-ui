@@ -1,0 +1,149 @@
+/* For Tree */
+.tree {
+  &-wrap {
+    position: relative;
+    font-size: 12px;
+  }
+  &-bg rect:nth-child(odd) {
+    fill: #f3f3f6;
+  }
+  &-bg rect:nth-child(even) {
+    fill: #f8f8fb;
+  }
+  &-dragarea rect {
+    opacity: 0.4;
+    fill: transparent;
+  }
+  &-dragarea.is-selected rect {
+    fill: transparent;
+  }
+  &-dragarea.is-selected line {
+    stroke: #0090ff;
+    stroke-width: 2px;
+  }
+  &-dragarea.is-disabled rect {
+    display: none;
+  }
+}
+.node {
+  text {
+    fill: #343233;
+    pointer-events: none;
+  }
+  text.is-editing {
+    display: none;
+  }
+  path {
+    stroke: #999;
+  }
+  .link {
+    fill: none;
+    stroke: #CCC;
+    stroke-width: 2px;
+  }
+  &.is-close {
+    display: none;
+  }
+  &-toggle {
+    fill: transparent;
+    cursor: pointer;
+  }
+  &-toggle-label {
+    fill: #aaa;
+    stroke-width: 0;
+    font-weight: bold;
+  }
+  &-bg {
+    rx: 2px;
+    ry: 2px;
+  }
+  &.is-selected {
+    .node-bg {
+      stroke: #0090ff !important;
+      stroke-width: 2px;
+    }
+  }
+  &.is-dragging {
+    .node-bg {
+      pointer-events: none;
+    }
+  }
+  &.node--userinput {
+    .node-bg {
+      stroke: #05aa65;
+    }
+    .node-name {
+      fill: #0090ff;
+    }
+    &-range {
+      font-size: 11px;
+      fill: #0090ff;
+    }
+  }
+  &.node--leaf {
+    .node-bg {
+      stroke: #DDD;
+      fill: url("#leafGradient");
+    }
+    .node-name {
+      fill: #05aa65;
+    }
+  }
+  &.node--branch {
+    .node-bg {
+      stroke: #DDD;
+      fill: url("#branchGradient");
+    }
+    .node-name {
+      fill: #666;
+    }
+  }
+  &--drag {
+    .node-bg {
+      fill: none;
+      stroke: #666;
+    }
+    .node-name {
+      fill: #666;
+    }
+  }
+  &--internal text {
+    text-shadow: 0 1px 0 #FFF, 0 #FFF, 1px 0 0 #FFF, -1px 0 0 #FFF;
+  }
+  &-textbox {
+    position: absolute;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  &-tooltip {
+    position: absolute;
+    background: #FFF;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    box-shadow: 0 0 3px 0px rgba(0,0,0,.2);
+    max-width: 400px;
+    padding: 5px;
+  }
+  &-tooltip-text {
+    word-wrap: break-word;
+    word-break: break-all;
+    text-align: justify;
+    margin: 0;
+  }
+}
+#branchGradient {
+  .from {
+    stop-color: #FFF;
+  }
+  .to {
+    stop-color: #EEE;
+  }
+}
+#leafGradient {
+  .from {
+    stop-color: #FFF
+  }
+  .to {
+    stop-color: #EEE;
+  }
+}
