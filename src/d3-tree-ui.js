@@ -1359,5 +1359,3 @@ class Util {
 (function() {
   window.TreeUI = TreeUI;
 }())
-
-module.exports = TreeUI;

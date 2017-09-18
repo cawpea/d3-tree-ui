@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>D3 Tree UI</title>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
   <style>
   /* For demo page */
   html, body, h1 {
     margin: 0;
   }
+  body {
+    font-family: 'Ubuntu', sans-serif;
+  }
   main {
     background: #f8f8fb;
     padding-top: 50px;
+    overflow: auto;
   }
   .demo-header {
     position: fixed;
@@ -18,8 +23,8 @@
     left: 0;
     right: 0;
     height: 50px;
-    background: linear-gradient(#333, #000);
-    color: #FFF;
+    background: #FFF;
+    color: #444;
     box-shadow: 0px 1px 3px 1px rgba(0,0,0,.1);
     z-index: 10;
   }
@@ -40,10 +45,26 @@
     padding: 15px 20px;
   }
   .demo-footer {
-    padding: 15px 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    line-height: 40px;
     text-align: center;
-    background: linear-gradient(#333, #000);
-    color: #FFF;
+    background: #FFF;
+    color: #444;
+  }
+  .demo-btn {
+    border: 1px solid #DDD;
+    border-radius: 2px;
+    background: #FFF;
+    padding: 10px 15px;
+    transition: all .2s ease-out;
+  }
+  .demo-btn:hover {
+    background: #FAFAFA;
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,.1);
   }
   a {
     color: #44b1ff;
@@ -56,12 +77,12 @@
       <header class="demo-header">
         <div class="demo-header-inner">
           <h1 class="demo-header-title">D3 Tree UI</h1/>
-          <p><a href="https://github.com/masaki-ohsumi/d3-tree-ui" target="_blank">GitHub</a></p>
+          <p><a href="https://github.com/masaki-ohsumi/d3-tree-ui" target="_blank">Fork me on GitHub!</a></p>
         </div>
       </header>
       <nav class="demo-nav">
-        <button class="btn btn-default js-tree-addnode-bottom">Add node to bottom</button>
-        <button class="btn btn-default js-tree-addnode-right">Add node to right</button>
+        <button class="demo-btn demo-btn-default js-tree-addnode-bottom">Add node to bottom</button>
+        <button class="demo-btn demo-btn-default js-tree-addnode-right">Add node to right</button>
       </nav>
       <div class="tree-wrap">
         <svg id="tree"></svg>

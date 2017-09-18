@@ -4,6 +4,7 @@
   "description": "This is a library to use hierarchical user interface like a File System.",
   "main": "public/d3-tree-ui.js",
   "scripts": {
+    "prepublish": "npm run build",
     "start": "webpack-dev-server --inline",
     "watch": "npm run start & webpack -p --watch",
     "build": "webpack -p",
