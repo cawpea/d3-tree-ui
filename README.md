@@ -12,6 +12,12 @@ D3 Tree UI is the library to use tree structure that is made by [D3.js](https://
 npm install d3-tree-ui
 ```
 
+You can also download and use it.
+
+```
+<script src="public/d3-tree-ui.js"></script>
+```
+
 ## Usage
 
 1. Prepare json data like following structure.
