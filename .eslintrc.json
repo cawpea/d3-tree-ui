@@ -1,0 +1,16 @@
+{
+  "extends": ["eslint"],
+  "plugins": [],
+  "parserOptions": {},
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "globals": {},
+  "rules": {
+    "indent": ["error", 2]
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  }
+}
