@@ -2,7 +2,7 @@
 .tree {
   &-wrap {
     position: relative;
-    font-size: 12px;
+    font-size: 14px;
   }
   &-bg rect:nth-child(odd) {
     fill: #f3f3f6;
@@ -38,7 +38,7 @@
   }
   .link {
     fill: none;
-    stroke: #CCC;
+    stroke: #ccc;
     stroke-width: 2px;
   }
   &.is-close {
@@ -70,7 +70,7 @@
   }
   &.node--userinput {
     .node-bg {
-      stroke: #05aa65;
+      stroke: #333;
     }
     .node-name {
       fill: #0090ff;
@@ -82,20 +82,20 @@
   }
   &.node--leaf {
     .node-bg {
-      stroke: #DDD;
+      stroke: #ddd;
       fill: url("#leafGradient");
     }
     .node-name {
-      fill: #05aa65;
+      fill: #333;
     }
   }
   &.node--branch {
     .node-bg {
-      stroke: #DDD;
+      stroke: #ddd;
       fill: url("#branchGradient");
     }
     .node-name {
-      fill: #666;
+      fill: #333;
     }
   }
   &--drag {
@@ -104,11 +104,11 @@
       stroke: #666;
     }
     .node-name {
-      fill: #666;
+      fill: #333;
     }
   }
   &--internal text {
-    text-shadow: 0 1px 0 #FFF, 0 #FFF, 1px 0 0 #FFF, -1px 0 0 #FFF;
+    text-shadow: 0 1px 0 #fff, 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
   }
   &-textbox {
     position: absolute;
@@ -117,10 +117,10 @@
   }
   &-tooltip {
     position: absolute;
-    background: #FFF;
-    border: 1px solid #CCC;
+    background: #fff;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    box-shadow: 0 0 3px 0px rgba(0,0,0,.2);
+    box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.2);
     max-width: 400px;
     padding: 5px;
   }
@@ -133,17 +133,17 @@
 }
 #branchGradient {
   .from {
-    stop-color: #FFF;
+    stop-color: #fff;
   }
   .to {
-    stop-color: #EEE;
+    stop-color: #eee;
   }
 }
 #leafGradient {
   .from {
-    stop-color: #FFF
+    stop-color: #fff;
   }
   .to {
-    stop-color: #EEE;
+    stop-color: #eee;
   }
 }

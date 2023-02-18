@@ -10,10 +10,11 @@
     margin: 0;
   }
   body {
+    background: #f8f8fb;
+    min-height: 100vh;
     font-family: 'Ubuntu', sans-serif;
   }
   main {
-    background: #f8f8fb;
     padding-top: 50px;
     overflow: auto;
   }
@@ -23,9 +24,8 @@
     left: 0;
     right: 0;
     height: 50px;
-    background: #FFF;
-    color: #444;
-    box-shadow: 0px 1px 3px 1px rgba(0,0,0,.1);
+    background: #333;
+    color: #fff;
     z-index: 10;
   }
   .demo-header-inner {
@@ -42,18 +42,8 @@
     font-weight: bold;
   }
   .demo-nav {
+    display: none;
     padding: 15px 20px;
-  }
-  .demo-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    background: #FFF;
-    color: #444;
   }
   .demo-btn {
     border: 1px solid #DDD;
@@ -66,6 +56,23 @@
     background: #FAFAFA;
     box-shadow: 0px 0px 4px 0px rgba(0,0,0,.1);
   }
+  .demo-footer {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    display: flex;
+    gap: 16px;
+  }
+  .demo-info {
+    font-size: 14px;
+    bottom: 40px;
+    right: 40px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+  }
   a {
     color: #44b1ff;
   }
@@ -77,7 +84,6 @@
       <header class="demo-header">
         <div class="demo-header-inner">
           <h1 class="demo-header-title">D3 Tree UI</h1/>
-          <p><a href="https://github.com/masaki-ohsumi/d3-tree-ui" target="_blank">Fork me on GitHub!</a></p>
         </div>
       </header>
       <nav class="demo-nav">
@@ -87,7 +93,8 @@
       <div class="tree-wrap">
       </div>
       <footer class="demo-footer">
-        <small>created by <a href="https://twitter.com/cawpea" target="_blank">@cawpea</a></small>
+        <div class="demo-info demo-info-fork">Fork me on <a href="https://github.com/cawpea/d3-tree-ui" target="_blank">GitHub</a> 😻</div>
+        <div class="demo-info demo-info-author">created by <a href="https://twitter.com/cawpea" target="_blank">@cawpea</a> 👋</div>
       </footer>
   </main>
   <script src="./d3-tree-ui.js"></script>
@@ -99,8 +106,8 @@
       addToBottom: '.js-tree-addnode-bottom',
       addToRight: '.js-tree-addnode-right',
       nodeWidth: 200,
-      nodeHeight: 30,
-      nodeMargin: 5
+      nodeHeight: 32,
+      nodeMargin: 8
     })
   }());
   </script>
