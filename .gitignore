@@ -57,5 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+.github
+.firebase
+
 # d3 tree ui
 public/
