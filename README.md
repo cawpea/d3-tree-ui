@@ -8,7 +8,7 @@ D3 Tree UI is the library to use tree structure that is made by [D3.js](https://
 
 ## DEMO
 
-[DEMO](http://demo-d3-tree-ui.hellopeople.jp/)
+[D3 Tree UI - DEMO](https://d3-tree-ui.web.app/)
 
 ## Install
 
@@ -50,33 +50,29 @@ You can also download and use it.
 2. Create instance in script.
 
 ```js:sample.js
-import 'd3-tree-ui';
+import { D3TreeUI } from "d3-tree-ui";
 
-(function () {
-   new window.TreeUI({
-    json: './data/sample-data.json',
-    svg: '#tree',
-    wrapper: '.tree-wrap',
-    addToBottom: '.js-tree-addnode-bottom',
-    addToRight: '.js-tree-addnode-right',
-    nodeWidth: 200,
-    nodeHeight: 30,
-    nodeMargin: 5
-  })
-}())
+new D3TreeUI({
+  selector: ".tree-wrap",
+  json: "./data/sample-data.json",
+  addToBottom: ".js-tree-addnode-bottom",
+  addToRight: ".js-tree-addnode-right",
+  nodeWidth: 200,
+  nodeHeight: 32,
+  nodeMargin: 8,
+});
 ```
 
 ## Option
 
-|param   |type   |description   |
-|--------|-------|--------------|
-|json   |String   |json file path to make tree |
-|svg|String|className or Id of element to construct tree|
-|wrapper|String|className or Id of wrap element of `svg`|
-|addToBottom|String|className or Id of element to add node to bottom|
-|addToRight|String|className or Id of element to add node to right|
-|nodeWidth|Number|width of each nodes|
-|nodeHeight|Number|height of each nodes|
-|addable|Boolean|whether it can add node|
-|editable|Boolean|whether it can edit node name|
-|draggable|Boolean|whether it can drag node|
+| param       | type    | description                                      |
+| ----------- | ------- | ------------------------------------------------ |
+| selector    | String  | className or Id of element to construct tree     |
+| json        | String  | json file path to make tree                      |
+| addToBottom | String  | className or Id of element to add node to bottom |
+| addToRight  | String  | className or Id of element to add node to right  |
+| nodeWidth   | Number  | width of each nodes                              |
+| nodeHeight  | Number  | height of each nodes                             |
+| addable     | Boolean | whether it can add node                          |
+| editable    | Boolean | whether it can edit node name                    |
+| draggable   | Boolean | whether it can drag node                         |
