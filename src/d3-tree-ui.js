@@ -51,7 +51,7 @@ const MOVE_DIRECTION = {
   RIGHT: "moveRight",
 };
 
-class TreeUI {
+export class D3TreeUI {
   constructor(params) {
     const {
       selector,
@@ -1450,5 +1450,5 @@ class Util {
 }
 
 (function () {
-  window.TreeUI = TreeUI;
+  window.D3TreeUI = D3TreeUI;
 })();

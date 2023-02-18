@@ -6,6 +6,7 @@ module.exports = [
   {
     context: path.join(__dirname, "src"),
     entry: {
+      index: "./index.js",
       "d3-tree-ui": "./d3-tree-ui.js",
     },
     output: {
