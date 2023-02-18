@@ -1,6 +1,6 @@
 {
   "name": "d3-tree-ui",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "This is a library to use hierarchical user interface like a File System.",
   "main": "public/d3-tree-ui.js",
   "scripts": {
@@ -10,13 +10,13 @@
     "build": "webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "git+https://github.com/masaki-ohsumi/tree-ui.git",
-  "author": "masaki-ohsumi",
+  "repository": "git+https://github.com/cawpea/d3-tree-ui.git",
+  "author": "cawpea",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/masaki-ohsumi/tree-ui/issues"
+    "url": "https://github.com/cawpea/tree-ui/issues"
   },
-  "homepage": "https://github.com/masaki-ohsumi/tree-ui#readme",
+  "homepage": "https://github.com/cawpea/tree-ui#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
