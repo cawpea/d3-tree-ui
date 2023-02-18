@@ -1,3 +1,6 @@
 src/
 .babelrc
+.firebaserc
+.node-version
+firebase.json
 webpack.config.js
