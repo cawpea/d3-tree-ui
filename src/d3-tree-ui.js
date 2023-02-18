@@ -54,9 +54,8 @@ const MOVE_DIRECTION = {
 class TreeUI {
   constructor(params) {
     const {
+      selector,
       json,
-      svg,
-      wrapper,
       addToBottom,
       addToRight,
       nodeWidth,
@@ -66,9 +65,13 @@ class TreeUI {
       editable,
       draggable,
     } = params;
+    const $svgWrapper = document.querySelector(selector);
+    const $svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    $svgWrapper.appendChild($svg);
+
     this.json = json;
-    this.$svgWrap = d3.select(wrapper);
-    this.$svg = d3.select(svg);
+    this.$svgWrap = d3.select($svgWrapper);
+    this.$svg = d3.select($svg);
     this.$addNodeBottom = d3.select(addToBottom);
     this.$addNodeRight = d3.select(addToRight);
     this.columnWidth = nodeWidth || 200;

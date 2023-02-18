@@ -85,7 +85,6 @@
         <button class="demo-btn demo-btn-default js-tree-addnode-right">Add node to right</button>
       </nav>
       <div class="tree-wrap">
-        <svg id="tree"></svg>
       </div>
       <footer class="demo-footer">
         <small>created by <a href="https://twitter.com/cawpea" target="_blank">@cawpea</a></small>
@@ -95,9 +94,8 @@
   <script>
   (function() {
     new TreeUI({
+      selector: '.tree-wrap',
       json: './data/sample-data.json',
-      svg: '#tree',
-      wrapper: '.tree-wrap',
       addToBottom: '.js-tree-addnode-bottom',
       addToRight: '.js-tree-addnode-right',
       nodeWidth: 200,
