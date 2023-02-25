@@ -470,10 +470,11 @@ export class D3TreeUI {
     this.$dragNode = d3.select(target);
     let dragNodeData = this.$dragNode.data()[0];
     this.setPropertyForNode(dragNodeData, "_isDragging", true);
-    this.focusNode(dragNodeData);
   }
   // ノードのドラッグ中処理
   doDragging() {
+    if (!this.$dragNode) return;
+
     let dragNodeData = this.$dragNode.data()[0];
     if (dragNodeData.depth === 0 || dragNodeData._isUserInput) {
       return;
@@ -923,11 +924,14 @@ export class D3TreeUI {
         this.hideTooltip();
       })
       .on("click", (d) => {
-        _this.focusNode(d);
-      })
-      .on("dblclick", (d) => {
-        if (this.editable) {
-          _this.editStartNodeName(d);
+        const isSelectedNode = this.getSelectedNodes().some(
+          (node) => node === d
+        );
+
+        this.focusNode(d);
+
+        if (isSelectedNode && this.editable) {
+          this.editStartNodeName(d);
         }
       });
 
