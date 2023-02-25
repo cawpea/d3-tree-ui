@@ -3,7 +3,7 @@ import "./d3-tree-ui.scss";
 
 const MARGIN = {
   CONTAINER: {
-    TOP: 30,
+    TOP: 40,
     BOTTOM: 50,
   },
   NODE: {
@@ -13,7 +13,11 @@ const MARGIN = {
     LEFT: 20,
   },
 };
+
 const DEFAULT_DURATION = 500;
+
+// ノードの開閉トリガーの大きさ
+let NODE_TOGGLE_TRIGGER_SIZE = 12;
 
 // ノード名の１行あたりの最大文字数（半角）
 const NODE_NAME_LINE_MAX = 26;
@@ -1355,7 +1359,7 @@ export class D3TreeUI {
   }
   updateToggleChildren() {
     let _this = this;
-    let circleRadius = 8;
+    const toggleRightMargin = 4;
 
     this.$nodes.each(function (d) {
       let $node = d3.select(this);
@@ -1368,21 +1372,25 @@ export class D3TreeUI {
           .attr("class", "node-toggle")
           .attr(
             "transform",
-            `translate(${_this.columnWidth - circleRadius * 2}, 0)`
+            `translate(${
+              _this.columnWidth - NODE_TOGGLE_TRIGGER_SIZE - toggleRightMargin
+            }, 0)`
           )
           .on("click", (d) => {
             _this.toggleChildren(d);
           });
 
-        let $circles = $toggle.append("circle").attr("r", circleRadius);
+        let $circles = $toggle
+          .append("circle")
+          .attr("r", NODE_TOGGLE_TRIGGER_SIZE);
 
         let $texts = $toggle
           .append("text")
           .attr("class", "node-toggle-label")
-          .attr("width", circleRadius * 2)
-          .attr("hegith", circleRadius * 2)
+          .attr("width", NODE_TOGGLE_TRIGGER_SIZE * 2)
+          .attr("hegith", NODE_TOGGLE_TRIGGER_SIZE * 2)
           .attr("text-anchor", "middle")
-          .attr("dy", circleRadius / 2)
+          .attr("dy", NODE_TOGGLE_TRIGGER_SIZE / 2)
           .text(d._isToggleOpen === false ? "+" : "–");
       } else if (isParent && hasToggle) {
         $node
